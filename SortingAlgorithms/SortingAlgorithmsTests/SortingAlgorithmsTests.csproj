@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Algorithms\BubbleSortTests.cs" />
+    <Compile Include="Algorithms\InsertionSortTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
