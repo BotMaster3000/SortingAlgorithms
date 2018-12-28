@@ -11,7 +11,23 @@ namespace SortingAlgorithms.Algorithms
     {
         public int[] Sort(int[] unsortedArray)
         {
-            throw new NotImplementedException();
+            bool notSorted;
+            do
+            {
+                notSorted = false;
+                for (int i = 1; i < unsortedArray.Length; ++i)
+                {
+                    if (unsortedArray[i] < unsortedArray[i - 1])
+                    {
+                        notSorted = true;
+                        int tempInt = unsortedArray[i];
+                        unsortedArray[i] = unsortedArray[i - 1];
+                        unsortedArray[i - 1] = tempInt;
+                    }
+                }
+            }
+            while (notSorted);
+            return unsortedArray;
         }
     }
 }

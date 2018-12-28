@@ -11,10 +11,42 @@ namespace SortingAlgorithms.Algorithms.Tests
     [TestClass]
     public class BubbleSortTests
     {
-        [TestMethod]
-        public void SortTest()
+        private void CheckIfInOrder(int[] numberArray)
         {
-            Assert.Fail();
+            for (int i = 1; i < numberArray.Length; ++i)
+            {
+                if (numberArray[i - 1] > numberArray[i])
+                {
+                    Assert.Fail($"Array not in order. {numberArray[i - 1]} is bigger than {numberArray[i]}");
+                }
+            }
+        }
+
+        [TestMethod]
+        public void SortTest_SingleOccurance_NoGap()
+        {
+            int[] numberArray = new int[] { 4, 2, 3, 1, 6, 0, 5, 7, 9, 8 };
+            BubbleSort sorter = new BubbleSort();
+            sorter.Sort(numberArray);
+            CheckIfInOrder(numberArray);
+        }
+
+        [TestMethod]
+        public void SortTest_SingleOccurance_Gap()
+        {
+            int[] numberArray = new int[] { 4, 2, 9, 19, 500 };
+            BubbleSort sorter = new BubbleSort();
+            sorter.Sort(numberArray);
+            CheckIfInOrder(numberArray);
+        }
+
+        [TestMethod]
+        public void SortTest_MultipleOccurance_Gap()
+        {
+            int[] numberArray = new int[] { 5, 5, 10, 10, 7, 8, 20, 1, 0 };
+            BubbleSort sorter = new BubbleSort();
+            sorter.Sort(numberArray);
+            CheckIfInOrder(numberArray);
         }
     }
 }
